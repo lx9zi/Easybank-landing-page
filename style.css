@@ -1,0 +1,533 @@
+:root {
+    --DarkBlue: hsl(233, 26%, 24%);
+    --LimeGreen: hsl(136, 65%, 51%);
+    --BrightCyan: hsl(192, 70%, 51%);
+
+    --GrayishBlue: hsl(233, 8%, 62%);
+    --LightGrayishBlue: hsl(220, 16%, 96%);
+    --VeryLightGray: hsl(0, 0%, 98%);
+    --White: hsl(0, 0%, 100%);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Public Sans', sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 1rem 5rem;
+    position: relative;
+    align-items: center;
+    background-color: var(--White);
+}
+
+.toggle {
+    flex-direction: column;
+    justify-content: space-between;
+    width: 31px;
+    height: 20px;
+    position: absolute;
+    right: 1rem;
+    display: none;
+}
+
+.bar {
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    transition: .5s ease-in-out;
+}
+
+.active .bar:first-child {
+    transform: rotate(45deg) translate(8px, 0px);
+}
+
+.active .bar:nth-of-type(2) {
+    display: none;
+}
+
+.active .bar:last-child {
+    transform: rotate(-45deg) translate(12px, -5px)
+}
+
+.nav-open {
+    width: 350px;
+    position: absolute;
+    top: 5rem;
+    z-index: 555;
+    background-color: red;
+}
+
+.items li {
+    display: inline;
+    padding: 1rem;
+}
+
+.items li a {
+    text-decoration: none;
+    color: var(--GrayishBlue);
+    position: relative;
+    padding-bottom: 3rem;
+}
+
+.items li a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    transform-origin: right;
+    scale: 0 1;
+    transition: scale .25s;
+    height: 3px;
+    background: linear-gradient(90deg, var(--LimeGreen) 0%, var(--LimeGreen) 0%, var(--BrightCyan) 100%);
+    border-radius: 4px;
+}
+
+.items li a:hover::before {
+    scale: 1;
+    transform-origin: left;
+}
+
+button {
+    padding: 1rem 2.5rem;
+    border-radius: 60px;
+    border: none;
+    background: linear-gradient(90deg, var(--LimeGreen) 0%, var(--LimeGreen) 0%, var(--BrightCyan) 100%);
+    color: var(--White);
+    cursor: pointer;
+    transition: .5s ease-in-out;
+}
+
+button:hover {
+    opacity: .5;
+}
+
+section {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: var(--VeryLightGray);
+}
+
+.leftSide,
+.rightSide {
+    width: 50%;
+
+}
+
+.leftSide {
+    display: flex;
+    flex-direction: column;
+    padding: 8rem 5rem;
+    /* border: 1px solid red; */
+}
+
+.leftSide .title h1 {
+    font-size: 50px;
+    font-weight: 100;
+    color: var(--DarkBlue);
+}
+
+.leftSide .pragraph {
+    padding-top: 1.5rem;
+    color: var(--GrayishBlue);
+    width: 90%;
+    line-height: 30px;
+    font-size: 18px;
+}
+
+.leftSide button {
+    padding: 1rem 2.5rem;
+    margin-top: 2rem;
+    width: 35%;
+}
+
+.rightSide {
+    position: relative;
+}
+
+.rightSide img {
+    position: absolute;
+}
+
+.background img {
+    top: -16rem;
+    right: -30rem;
+}
+
+.phones img {
+    /* display: none; */
+    position: absolute;
+    top: -8rem;
+    right: -8rem;
+}
+
+
+.about-easybank {
+    background-color: var(--LightGrayishBlue);
+    padding: 5rem 7rem;
+}
+
+
+
+.about-easybank .title h1 {
+    font-size: 35px;
+    font-weight: 100;
+    color: var(--DarkBlue);
+}
+
+
+.about-easybank .pragraph {
+    padding-top: 1.5rem;
+    color: var(--GrayishBlue);
+    line-height: 30px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.about-easybank .card,
+.articles .card {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 3rem 0;
+    justify-content: space-between;
+}
+
+.about-easybank .card-info {
+    width: 260px;
+}
+
+.about-easybank .card .card-title h1 {
+    padding: 1.5rem 0;
+    font-weight: 100;
+    color: var(--DarkBlue);
+}
+
+.about-easybank .card .card-pragraph {
+    color: var(--GrayishBlue);
+}
+
+.articles {
+    padding: 5rem 7rem;
+    background-color: var(--VeryLightGray);
+}
+
+.articles .title h1 {
+    padding: 1.5rem 0 .5rem 0;
+    font-size: 35px;
+    font-weight: 400;
+    color: var(--DarkBlue);
+}
+
+
+.articles .card-info {
+    width: 255px;
+    border-radius: 10px;
+    background-color: var(--White);
+    overflow: hidden;
+}
+
+.articles .card-image img {
+    width: 100%;
+    height: 180px;
+}
+
+
+
+.articles .by h4 {
+    color: var(--GrayishBlue);
+    font-weight: 100;
+    padding: 1rem 1rem .5rem 1rem;
+    font-size: 10px;
+}
+
+.articles .card-title h1 {
+    padding: 0 1rem .5rem;
+    font-size: 18px;
+    font-weight: 400;
+    transition: .5s ease-in-out;
+}
+
+.articles .card-title h1:hover {
+    color: var(--LimeGreen);
+    cursor: pointer;
+}
+
+.articles .card-pragraph {
+    padding: 0 1rem 1.2rem 1rem;
+    color: var(--GrayishBlue);
+    font-size: 15px;
+}
+
+
+.container {
+    padding: 3rem 5rem;
+    display: flex;
+    justify-content: center;
+    background-color: var(--DarkBlue);
+}
+
+
+
+.logo-social {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.logo-social .logo {
+    width: 180px;
+}
+
+.social {
+    display: flex;
+    justify-content: space-between;
+}
+
+.social img:hover {
+    filter: invert(75%) sepia(38%) saturate(858%) hue-rotate(76deg) brightness(199%) contrast(93%);
+    transition: .5s ease-in-out;
+}
+
+
+
+.container .items li {
+    display: block;
+    padding: 10px 0;
+}
+
+.container .links {
+    padding-left: 10rem;
+}
+
+
+.container .items li a {
+    transition: .5s ease-in-out;
+    color: var(--White);
+}
+
+.container .links .items li a:hover {
+    color: var(--LimeGreen);
+}
+
+.container .links .items li a:hover::before {
+    scale: 0;
+    transform-origin: left;
+}
+
+.container .btn-copyright {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 17rem;
+}
+
+.container .btn-copyright button {
+    margin-left: auto;
+    width: 80%;
+    font-weight: 900;
+    padding: 1rem .5rem;
+}
+
+.container .social img:hover {
+    cursor: pointer;
+    color: var(--VeryLightGray);
+}
+
+.container .btn-copyright p {
+    color: var(--GrayishBlue);
+}
+
+
+.attribution {
+    display: none;
+    font-size: 11px;
+    color: var(--White);
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+
+
+
+@media(max-width:375px) {
+
+    .items.navbar {
+        position: absolute;
+        top: 4rem;
+        background-color: var(--White);
+        z-index: 555;
+        width: 350px;
+        padding: 2rem 0;
+        display: none;
+        align-items: center;
+        border-radius: 10px;
+        flex-direction: column;
+        box-shadow: 11px 17px 1000px 27px #000000;
+    }
+
+    .items.navbar li a {
+        color: var(--DarkBlue);
+        padding: 2px;
+    }
+
+    .items.navbar li {
+        padding: .7rem;
+    }
+
+    .open .items {
+        display: flex;
+    }
+
+
+
+    .navbar button {
+        display: none;
+    }
+
+    .navbar {
+        padding: 1rem;
+    }
+
+    section {
+        height: auto;
+    }
+
+    .main {
+        flex-direction: column;
+    }
+
+    .leftSide,
+    .rightSide {
+        width: 100%;
+    }
+
+
+
+    .rightSide {
+        order: 0;
+        overflow: hidden;
+        height: 296px;
+    }
+
+    .leftSide {
+        order: 2;
+        padding: 1rem .5rem;
+        align-items: center;
+        text-align: center;
+    }
+
+    .leftSide .title h1 {
+        font-size: 40px;
+    }
+
+    .leftSide .pragraph {
+        font-size: 15px;
+    }
+
+    .leftSide button {
+        width: 50%;
+    }
+
+    .phones img {
+        top: -7.8rem;
+        right: 5%;
+        width: 350px;
+    }
+
+    .background img {
+        width: 722px;
+        top: -248px;
+        right: -16rem;
+    }
+
+    .about-easybank,
+    .articles {
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .about-easybank .card,
+    .articles .card {
+        flex-direction: column;
+        align-content: center;
+    }
+
+    .about-easybank .card-info {
+        padding: 1rem 0;
+        font-size: 15px;
+        width: 350px;
+    }
+
+    .articles .card-info {
+        text-align: start;
+        width: 260px;
+        margin-top: 1rem;
+    }
+
+    .container {
+        flex-direction: column;
+        padding: 4rem;
+        text-align: center;
+    }
+
+    .container .btn-copyright {
+        margin: 2rem 0 0;
+    }
+
+    .container .btn-copyright button {
+        margin-left: 20px;
+    }
+
+    .container .btn-copyright p {
+        margin: 20px 0 0;
+        padding: 0;
+        /* display: none; */
+    }
+
+    .container .links {
+        padding-left: 0;
+    }
+
+    .container .logo {
+        margin-bottom: 2rem;
+    }
+
+    .logo-social {
+        margin-bottom: 20px;
+    }
+
+    .toggle {
+        display: flex;
+    }
+
+    footer {
+        position: relative;
+    }
+
+    .attribution {
+        position: absolute;
+        bottom: 0;
+        display: flex;
+    }
+}
