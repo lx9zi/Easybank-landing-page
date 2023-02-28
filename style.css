@@ -23,10 +23,11 @@ body {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-    padding: 1rem 5rem;
+    padding: .5rem 5rem;
     position: relative;
     align-items: center;
     background-color: var(--White);
+    z-index: 9999;
 }
 
 .toggle {
@@ -75,7 +76,7 @@ body {
     text-decoration: none;
     color: var(--GrayishBlue);
     position: relative;
-    padding-bottom: 3rem;
+    padding-bottom: 2rem;
 }
 
 .items li a::before {
@@ -111,42 +112,53 @@ button:hover {
     opacity: .5;
 }
 
+/* First Section */
+
 section {
     width: 100%;
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
 }
 
 .main {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    overflow-x: clip;
     background-color: var(--VeryLightGray);
 }
 
-.leftSide,
-.rightSide {
-    width: 50%;
-
-}
-
 .leftSide {
-    display: flex;
-    flex-direction: column;
-    padding: 8rem 5rem;
-    /* border: 1px solid red; */
+    width: 45%;
+    padding: 8rem 0 8rem 5rem;
+
 }
 
-.leftSide .title h1 {
+
+.rightSide {
+    background-image: url(./images/bg-intro-desktop.svg);
+    background-position: -50px -260px;
+    background-repeat: no-repeat;
+    width: 55%;
+    position: relative;
+}
+
+
+#phones {
+    position: absolute;
+    top: -120px;
+    right: -113px;
+    max-width: 100%;
+}
+
+
+.leftSide h1 {
     font-size: 50px;
     font-weight: 100;
     color: var(--DarkBlue);
 }
 
-.leftSide .pragraph {
+.leftSide p {
     padding-top: 1.5rem;
     color: var(--GrayishBlue);
-    width: 90%;
+    max-width: 85%;
     line-height: 30px;
     font-size: 18px;
 }
@@ -154,33 +166,16 @@ section {
 .leftSide button {
     padding: 1rem 2.5rem;
     margin-top: 2rem;
-    width: 35%;
 }
 
-.rightSide {
-    position: relative;
-}
 
-.rightSide img {
-    position: absolute;
-}
 
-.background img {
-    top: -16rem;
-    right: -30rem;
-}
-
-.phones img {
-    /* display: none; */
-    position: absolute;
-    top: -8rem;
-    right: -8rem;
-}
+/* Second Section */
 
 
 .about-easybank {
     background-color: var(--LightGrayishBlue);
-    padding: 5rem 7rem;
+    padding: 4rem 7rem;
 }
 
 
@@ -409,12 +404,10 @@ section {
         padding: 1rem;
     }
 
-    section {
-        height: auto;
-    }
+
 
     .main {
-        flex-direction: column;
+        flex-direction: column-reverse;
     }
 
     .leftSide,
@@ -422,44 +415,40 @@ section {
         width: 100%;
     }
 
-
+    #phones {
+        top: -150px;
+        left: 10px;
+    }
 
     .rightSide {
-        order: 0;
         overflow: hidden;
         height: 296px;
+        background-image: url(./images/bg-intro-mobile.svg);
+        background-repeat: no-repeat;
+        background-position: center;
     }
 
     .leftSide {
-        order: 2;
         padding: 1rem .5rem;
         align-items: center;
         text-align: center;
     }
 
-    .leftSide .title h1 {
+    .leftSide h1 {
         font-size: 40px;
     }
 
-    .leftSide .pragraph {
+    .leftSide p {
         font-size: 15px;
+        max-width: 100%;
+        text-align: center;
     }
 
     .leftSide button {
         width: 50%;
     }
 
-    .phones img {
-        top: -7.8rem;
-        right: 5%;
-        width: 350px;
-    }
 
-    .background img {
-        width: 722px;
-        top: -248px;
-        right: -16rem;
-    }
 
     .about-easybank,
     .articles {
@@ -502,7 +491,6 @@ section {
     .container .btn-copyright p {
         margin: 20px 0 0;
         padding: 0;
-        /* display: none; */
     }
 
     .container .links {
